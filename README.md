@@ -1,63 +1,69 @@
-# QA-01 — Testes Manuais | Samsung Galaxy S26 512GB
+# QA-01 — Testes Manuais | Samsung Galaxy S26
 
-Projeto de portfólio de QA com foco em testes manuais e exploratórios da página de produto do Samsung Galaxy S26 512GB na Samsung Shop Brasil.
+Projeto independente de portfólio em Quality Assurance (QA), com foco em testes manuais e exploratórios da página de produto do Samsung Galaxy S26 na Samsung Shop Brasil.
 
 ## Objetivo
-Avaliar informações e funcionalidades da página, documentar os cenários executados e registrar defeitos observados com evidências.
+
+Avaliar informações e funcionalidades da página do produto, executar cenários de teste, registrar resultados e documentar defeitos observados com evidências.
 
 ## Aplicação sob teste
-- **Produto:** Samsung Galaxy S26 5G 512GB
-- **URL:** https://shop.samsung.com/br/galaxy-s26-512gb/p?skuId=13649
+
+- **Produto:** Samsung Galaxy S26 5G
+- **Página analisada:** [Samsung Shop Brasil — Galaxy S26 512 GB](https://shop.samsung.com/br/galaxy-s26-512gb/p?skuId=13649)
 - **Sistema operacional informado:** Windows 11
 - **Navegador informado:** Google Chrome
-- **Tipo de teste:** Manual / exploratório
+- **Tipo de teste:** Manual e exploratório
 
-> Os resultados deste repositório refletem a execução manual relatada durante o projeto. Não representam certificação, auditoria oficial ou validação interna da Samsung.
+> Este é um projeto de estudo independente. Os resultados representam a execução manual realizada para este portfólio e não constituem auditoria, certificação ou validação oficial da Samsung.
 
 ## Escopo
-- Informações e especificações do produto
+
+- Conferência do nome e das especificações do produto
 - Seleção de armazenamento
 - Seleção de cores
-- Galeria de imagens
-- Consulta de frete
-- Fluxo de compra
+- Navegação pela galeria de imagens
+- Consulta de frete com CEP válido
+- Comportamento do botão “Comprar agora”
 
-## Resultado consolidado
+## Resultado da execução
 
-| Indicador | Resultado |
+| Indicador | Quantidade |
 |---|---:|
 | Casos planejados | 8 |
 | Casos executados | 8 |
-| Aprovados | 6 |
-| Reprovados | 2 |
+| Aprovados | 7 |
+| Reprovados | 1 |
 | Bloqueados | 0 |
-| Bugs únicos registrados | 1 |
+| Defeitos únicos registrados | 1 |
 
-### Casos de teste
+### Resumo dos casos
 
 | ID | Cenário | Resultado |
 |---|---|---|
-| CT-001 | Validar tamanho da tela | Reprovado |
+| CT-001 | Validar consistência do tamanho da tela | Reprovado |
 | CT-002 | Validar nome do produto | Aprovado |
-| CT-003 | Selecionar armazenamento de 256 GB | Reprovado |
+| CT-003 | Selecionar armazenamento de 256 GB | Aprovado |
 | CT-004 | Selecionar armazenamento de 512 GB | Aprovado |
 | CT-005 | Validar seleção de cores | Aprovado |
 | CT-006 | Validar navegação da galeria | Aprovado |
-| CT-007 | Validar cálculo de frete | Aprovado |
-| CT-008 | Validar botão Comprar agora | Aprovado |
+| CT-007 | Validar consulta de frete | Aprovado |
+| CT-008 | Validar botão “Comprar agora” | Aprovado |
 
 ## Defeito identificado
 
 **BUG-001 — Divergência na informação do tamanho da tela.**
 
-A execução identificou 6,2 polegadas na descrição do produto e 6,3 polegadas em outra área da página. A divergência também foi observada após selecionar a opção de 256 GB. Os dois casos reprovados estão relacionados ao mesmo defeito, portanto foi criado apenas um registro.
+Durante a execução, foram observadas informações diferentes na página: 6,2 polegadas em uma área e 6,3 polegadas em outra. O problema foi registrado uma única vez, associado ao CT-001.
 
-Consulte [`bugs/BUG-001.md`](bugs/BUG-001.md).
+A seleção de armazenamento de 256 GB foi avaliada separadamente no CT-003. A opção foi selecionada corretamente; a divergência de conteúdo permaneceu documentada no CT-001 e não foi contabilizada como falha adicional do seletor.
+
+- [Consultar documentação do BUG-001](bugs/BUG-001.md)
+- [Visualizar evidência do BUG-001](evidencias/BUG-001.png)
 
 ## Estrutura do repositório
 
 ```text
-qa-01-samsung-galaxy-s26/
+.
 ├── README.md
 ├── planejamento/
 │   └── plano-de-testes.md
@@ -67,27 +73,26 @@ qa-01-samsung-galaxy-s26/
 │   └── BUG-001.md
 └── evidencias/
     ├── README.md
-    └── testes/
+    └── BUG-001.png
 ```
 
-## Como reproduzir a análise
-1. Acesse a URL da aplicação sob teste.
-2. Localize as informações de tamanho da tela.
-3. Compare os valores apresentados nas diferentes áreas da página.
-4. Selecione a opção de armazenamento de 256 GB.
-5. Verifique se a divergência permanece.
+## Ferramentas e conhecimentos aplicados
+
+- Testes manuais e exploratórios
+- Elaboração e execução de casos de teste
+- Análise de resultados esperados e obtidos
+- Identificação e documentação de defeitos
+- Registro de evidências
+- Markdown e GitHub
 
 ## Observações
-- Os casos foram executados manualmente e os resultados foram informados pela pessoa responsável pelos testes.
-- CT-003 não representa um segundo bug: ele reproduziu a inconsistência já registrada em BUG-001.
-- Os testes aprovados não significam que todas as combinações, dispositivos ou condições possíveis foram cobertos.
-- O reteste de BUG-001 permanece pendente até que a página seja atualizada ou uma nova execução confirme a correção.
 
-## Ferramentas
-- Google Chrome
-- Git
-- GitHub
-- Markdown
+- Os resultados foram registrados a partir da execução manual informada durante o projeto.
+- CT-001 é o único caso reprovado e está relacionado ao BUG-001.
+- CT-003 verifica a funcionalidade de seleção de armazenamento; a divergência textual da tela foi isolada no CT-001.
+- O reteste do BUG-001 permanece pendente, pois não foi confirmada uma correção após a identificação do problema.
+- Os casos aprovados não representam cobertura de todas as combinações, dispositivos ou condições possíveis.
 
 ---
-**Projeto de estudo independente para demonstração de práticas de QA.**
+
+**Projeto de estudo independente — Portfólio de QA.**
